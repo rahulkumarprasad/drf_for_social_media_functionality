@@ -1,0 +1,48 @@
+################################Vendor Management System with Performance Metrics#######################
+
+Created an API for social networking application using Django Rest Framework with
+below functionalities.
+
+Database: sqlite3
+Api Package: djangorestframework
+Authentication package: djangorestframework-simplejwt
+
+--Constraints
+  • Use any database of your choice
+  • You are free to design Request/Response fields/formats
+--User Login/Signup
+  • Users should be able to login with their email and password(email should be case
+  insensitive)
+  • User should be able to signup with their email only(no otp verification required, valid
+  email format is sufficient)
+  • Except signup and login every api should be called for authenticated users only
+
+--Develop API for following functionalities:
+  • API to search other users by email and name(paginate up to 10 records per page).
+      a) If search keyword matches exact email then return user associated with the
+      email.
+      b) If the search keyword contains any part of the name then return a list of all
+      users.
+      eg:- Amarendra, Amar, aman, Abhirama are three users and if users search with "am"
+      then all of these users should be shown in the search result because "am"
+      substring is part of all of these names.
+      c) There will be only one search keyword that will search either by name or email.
+  • API to send/accept/reject friend request
+  • API to list friends(list of users who have accepted friend request)
+  • List pending friend requests(received friend request)
+  • Users can not send more than 3 friend requests within a minute.
+
+################################### Running application guide ##################################
+- First we need to pull the code and then go to the project directory.
+- Now we need to create python virtual environment and activate the virtual environment and then install all the packages from requirement.txt file.
+  > pip install -r requirements.txt
+- After install all the requirements we need to now do database change.
+- I am using sqlite3 django default database, if we want we can change our database by making change in settings.py file.
+- Note i have already created the sqlite3 database and its in my reposetory with sample data, we can delete that file and can create new database with following code.
+  > python manage.py makemigrations
+  > python manage.py migrate
+- After database setup we need to run our application with following command
+  > python manage.py runserver 0.0.0.0:7000
+
+- Now we can use post-man collection for testing which is attached in same project with file path as 
+  > postman_collections_to_test.json (import post-man collection and use)

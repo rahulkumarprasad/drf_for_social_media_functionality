@@ -1,0 +1,16 @@
+version: "3"
+services:
+  web:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./social_media_project
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./social_media_project:/app
+    stdin_open: true
+    tty: true
+volumes:
+  db:
+    driver: local

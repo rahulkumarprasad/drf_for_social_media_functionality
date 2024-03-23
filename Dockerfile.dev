@@ -1,0 +1,13 @@
+FROM python:3.6
+WORKDIR /app
+RUN apt update
+COPY ./requirements.txt /app
+RUN pip install -r requirements.txt
+COPY . /app
+EXPOSE 8000
+ENV DB_HOST="127.0.0.1"
+ENV DB_PORT="3306"
+ENV DB_USER="root"
+ENV DB_PASSWORD="root"
+ENV DB_NAME="rakeshbook"
+CMD bash -c "python manage.py runserver 0.0.0.0:8000"
